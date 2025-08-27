@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>StudyGarden</title>
+        <link rel="stylesheet" href="StudyGarden.css">
+        <script src="Plants.js"></script>
+        <script src="StudyGarden.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Short+Stack&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    </head>
+    <body>
+        <!-- Shown on all pages  -->
+        <div id="titlebar" class="drag">TitleBar</div>
+
+        <!-- Main menu screen -->
+        <div id="mainMenu" class="screen">
+            <div id="title"></div>
+            <div id="options">
+                <button id="start" class="mainMenuItems button">Start</button>
+                <button id="settings" class="mainMenuItems button">Settings</button>
+                <button id="help" class="mainMenuItems button">Help</button>
+            </div>
+        </div>
+
+        <!-- Garden screen -->
+        <div id="garden" class="screen">
+            <div id="gardenItems">
+                <div id="leftPlaceholder"></div>
+                <button id="stopwatch">Start</button>
+                <div class="gold">
+                    <div class="goldIcon"></div>
+                    <div class="goldAmount">30</div>
+                </div>
+            </div>
+            <div id="time">00:00:00</div>
+            <div id="plot"></div>
+            <div id="navbarContainer">
+                <div id="navbar">
+                    <div id="navbarTitle" class="navbarItems"></div>
+                    <button id="shop" class="navbarItems button">Shop</button>
+                    <button id="plantersGuide" class="navbarItems button">Planters Guide</button>
+                    <button id="sell" class="navbarItems button">Sell</button>
+                </div>
+                <button id="navbarButton"></button>
+            </div>
+        </div>
+
+        <!-- Shop screen -->
+        <div id="shopScreen" class="screen market">
+            <div id="header">
+                <div id="screenGold" class="gold">
+                    <div class="goldIcon"></div>
+                    <div class="goldAmount">30</div>
+                </div>
+                <div id="shopTitle">Shop</div>
+            </div>
+            <div id="itemContainer">
+                <div class="item">
+                    <div class="itemName">Name of Plant</div>
+                    <div class="itemDetails">
+                        <div class="picture"></div>
+                        <div class="price">
+                            <div id="screenGold" class="gold">
+                                <div class="goldIcon"></div>
+                                <div class="goldAmount">30</div>
+                            </div>
+                        </div>
+                        <button class="shopAction action">Buy</button>
+                    </div>
+                </div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+
+        <!-- Planters Guide screen -->
+        <div id="plantersGuideScreen" class="screen">
+            <div id="fullPage">
+                <div id="guideTitle">Planter's Guide</div>
+                <!-- <div id="page" class="page">
+                    <div id="guideContents" class="guidePlants">
+                    <div id="plantImage" class="plantDetails"></div>
+                    <div id="plantName" class="plantDetails"></div>
+                    <div id="plantDescription" class="plantDetails"></div>
+                    </div> x3 
+                </div> -->
+            </div>
+            <button id="turnPageRight"><i id="rightIcon" class="fa-solid fa-angles-right fa-xl"></i></button>
+            <button id="turnPageLeft" disabled><i id="leftIcon" class="fa-solid fa-angles-left fa-xl"></i></button>
+        </div>
+
+        <!-- Sell screen -->
+        <div id="sellScreen" class="screen market">
+            <div id="header">
+                <div id="screenGold" class="gold">
+                    <div class="goldIcon"></div>
+                    <div class="goldAmount">30</div>
+                </div>
+                <div id="shopTitle">Sell</div>
+            </div>
+            <div id="itemContainer">
+                <div class="item">
+                    <div class="itemName">Name of Plant</div>
+                    <div class="itemDetails">
+                        <div class="picture sellPicture"></div>
+                        <div class="price">
+                            <div id="screenGold" class="gold">
+                                <div class="goldIcon"></div>
+                                <div class="goldAmount">30</div>
+                            </div>
+                        </div>
+                        <button class="sellAction action">Sell</button>
+                    </div>
+                </div>
+                <div class="item"></div>
+                <div class="item"></div>
+                <div class="item"></div>
+            </div>
+        </div>
+        
+    </body>
+</html>

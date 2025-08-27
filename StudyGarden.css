@@ -1,0 +1,572 @@
+/* StudyGarden */
+html{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+* {
+    font-family: 'Short Stack', sans-serif;
+    font-size: 4vw;
+    color: #D4A373;
+    font-weight: bold;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background-color: #A17448;
+    margin: 0;
+}
+
+#titlebar {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.drag {
+    -webkit-app-region: drag;
+}
+
+/* main menu css */
+
+#mainMenu {
+    width: 97vw;
+    height: 91vh;
+    position: relative;
+    background: url('Trellis.svg');
+    background-size: 100% 100%;
+    background-color: #DFE5B0;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+#title {
+    width: 80vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: -1vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url('Heading.svg') no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+#options {
+    width: 75vw;
+    height: 65vh;
+    position: absolute;
+    top: 14vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: url('startbackground.jpg');
+    background-size: cover;
+    z-index: 1;
+    border-radius: 10px;
+    border: 5px solid #B4C188;
+}
+
+.mainMenuItems {
+    height: 2vh;
+    width: 28vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3vh;
+    margin: 3vh;
+    background: #FEFAE0;
+    background: radial-gradient(circle,rgba(254, 250, 224, 1) 0%, rgba(254, 250, 224, 1) 50%, rgba(250, 237, 205, 1) 100%);
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 3px solid #CCD5AE;
+    transition-duration: 0.1s;
+}
+
+.mainMenuItems:hover {
+    background: #F0E6C2;    
+    transform: scale(1.02);
+}
+
+/* garden css */
+
+#garden {
+    width: 97vw;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    background-size: 100% 100%;
+    background: linear-gradient(#ADD8E6, #D5DD98);
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+
+#gardenItems {
+    width: auto;
+    height: 8vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 3vh 3vh 0 3vh;
+    align-items: center;
+}
+
+#leftPlaceholder {
+    justify-self: start;
+}
+
+#stopwatch {
+    width: 20vh;
+    height: 8vh;
+    justify-self: center;
+    color: #FEFAE0;
+    background-color: #B4C188;
+    border: 3px solid #9CA26D;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#stopwatch.stopwatchStop {
+    background-color: #E69395;
+    border: 3px solid #C9746C;
+}
+
+#stopwatch:hover {
+    background: #a9b581;    
+    transform: scale(1.01);
+}
+#stopwatch.stopwatchStop:hover {
+    background: #c58283;    
+    transform: scale(1.01);
+}
+
+.gold {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-self: end;
+}
+
+.goldIcon {
+    width: 8vh;
+    height: 8vh;
+    background: url('dabloon.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.goldAmount {
+    width: 8vh;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #A17448;
+}
+
+#plot {
+    width: 85vw;
+    height: 60vh;
+    background: url('garden.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 15vh auto 0 auto;
+}
+
+/* garden timer start */
+#time {
+    display: none;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 20vh;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: #5b5855;
+    margin: 0 auto;
+}
+/* navbar css */
+#navbarContainer {
+    width: auto;
+    height: auto;
+    display: flex;
+    position: absolute;
+    top: 7vh;
+    left: 1.5vw;
+    flex-direction: row;
+}
+
+#navbar {
+    width: 34vw;
+    height: 88vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: #FEFAE0;
+    border-right: 0.5vh solid #A17448;
+    padding: 1.5vh;
+}
+
+#navbarButton {
+    width: 4vw;
+    height: 15vh;
+    background: url('navbarButton.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 2px;
+    border: none;
+    margin-top: 3vh;
+    margin-left: -0.5vw;
+}
+
+#navbarButton:hover {
+    width: 7.5vw;
+    background: url('navbarButtonExpanded.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    margin-left: -0.4vw;
+}
+
+/* navbar items */
+.navbarItems {
+    width: 30vw;
+    height: 8vh;
+    padding: 1vh 1vw;;
+    text-align: left;
+    background-color: #FEFAE0;
+    margin: 1vh 0;
+    border: none;
+}
+
+.navbarItems:hover {
+    background-color: #F0E6C2;
+    border-radius: 5px;
+}
+
+#navbarTitle {
+    width: 30.8vw;
+    height: 11.5vh;
+    background: url('navbarTitle.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#plantersGuide {
+    font-size: 3.35vw;
+}
+
+/* shop screen / sell screen */
+.market {
+    width: 97vw;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+#header {
+    width: auto;
+    height: 8vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 3vh 0 3vh;
+    align-items: center;
+    justify-content: center;
+}
+
+#shopScreen #screenGold,
+#sellScreen #screenGold {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-self: start;
+}
+
+#screenGold .goldAmount {
+    color: #FEFAE0;
+}
+
+#shopScreen #shopTitle,
+#sellScreen #shopTitle {
+    width: auto;
+    height: 8vh;
+    font-size: 6vw;
+    justify-self: center;
+    justify-content: center;
+    text-align: center;
+    color: #FEFAE0;
+}
+
+#shopScreen #itemContainer,
+#sellScreen #itemContainer {
+    width: 91vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin: 2vh 3vh 2vh 3vh;
+    scrollbar-width: none;
+}
+
+.item {
+    width: auto;
+    height: 21vh;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 3vw;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#shopScreen .itemName,
+#sellScreen .itemName {
+    width: auto;
+    height: 35%;
+    font-size: 5vw;
+    font-weight: normal;
+}
+
+#shopScreen .itemDetails,
+#sellScreen .itemDetails {
+    width: auto;
+    height: 65%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#shopScreen .picture,
+#sellScreen .picture {
+    width: auto;
+    height: auto;
+    grid-column: 1;
+    background: url('./plants/BunnyBark.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#shopScreen .price,
+#sellScreen .price {
+    width: auto;
+    height: auto;
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#shopScreen .action,
+#sellScreen .action {
+    width: auto;
+    height: auto;
+    grid-column: 3;
+
+    width: 18vw;;
+    height: 8vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3vh auto;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    color: #6F553D;
+    font-weight: normal;
+}
+
+/* shop screen */
+#shopScreen{
+    background-color: #b28253;
+}
+#shopScreen .item {
+    background: #D4A373;
+    color: #FEFAE0;
+}
+#shopScreen .itemName {
+    color: #FEFAE0;
+}
+.shopAction {
+    background: #FEFAE0;
+    border: 3px solid #FEFAE0;
+}
+.shopAction:hover{
+    background: #F0E6C2;
+    border: 3px solid #F0E6C2;
+}
+
+/* sell screen */
+#sellScreen {
+    background-color: #B4C188;
+}
+#sellScreen .item {
+    background: #E9EDC9;
+}
+#sellScreen .itemName {
+    color: #A17448;
+}
+#sellScreen .price .goldAmount {
+    color: #A17448;
+}
+.sellAction {
+    background: #B4C188;
+    border: 3px solid #B4C188;
+}
+.sellAction:hover {
+    background: #a9b581;
+    border: 3px solid #a9b581;
+}
+
+/* planter's guide screen */
+#plantersGuideScreen {
+    width: 97vw;
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background: url('parchment.svg');
+    background-size: 100% 95%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #D4A373;
+}
+
+#fullPage {
+    width: 57vw;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    padding: 3vh;
+    gap: 2vh;
+    box-sizing: border-box;
+}
+
+.page {
+    display: none;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+#guideTitle {
+    width: auto;
+    height: 5vh;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: #846340;
+    font-weight: normal;
+}
+
+.guidePlants {
+    width: auto;
+    height: 20vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+.plantDetails {
+    font-size: 2.5vw;
+    font-weight: normal;
+    color: #846340;
+}
+
+#plantImage{
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    background: none;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#plantName{
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 1vh;
+    text-decoration: underline;
+}
+#plantDescription{
+    grid-column: 2;
+    grid-row: 2 / span 2;
+    font-style: italic;
+}
+
+#turnPageRight {
+    width: 8vw;
+    height: 8vh;
+    position: absolute;
+    top: 47vh;
+    right: 8vw;
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+#turnPageRight:disabled {
+    opacity: 0.5;
+}
+
+#turnPageRight:hover:enabled {
+    transform: scale(1.13);
+}
+
+#rightIcon {
+    color: #FEFAE0;
+}
+
+#turnPageLeft {
+    width: 8vw;
+    height: 8vh;
+    position: absolute;
+    top: 47vh;
+    left: 8vw;
+    text-align: center;
+    background: none;
+    border: none;
+}
+
+#turnPageLeft:disabled {
+    opacity: 0.5;
+}
+
+#turnPageLeft:hover:enabled {
+    transform: scale(1.13);
+}
+
+#leftIcon {
+    color: #FEFAE0;
+}

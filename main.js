@@ -1,0 +1,32 @@
+const { app, BrowserWindow } = require('electron/main')
+
+const createWindow = () => {
+  const win = new BrowserWindow({
+    width: 600,
+    height: 540,
+    frame: false,
+    resizable: true,
+    autoHideMenuBar: true,
+    fullscreen: false,
+    maxWidth: 900,
+    maxHeight: 810,
+  })
+  win.setAspectRatio(10/9);
+  win.loadFile('index.html')
+}
+
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
